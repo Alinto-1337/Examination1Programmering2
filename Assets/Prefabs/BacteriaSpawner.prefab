@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6886306259352763917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3909056895016993648}
+  - component: {fileID: 2673439799595368621}
+  m_Layer: 0
+  m_Name: BacteriaSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3909056895016993648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6886306259352763917}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2673439799595368621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6886306259352763917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 855bbe5a34da2e94dbd1519c33f7da07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeBetweenWaves: 1.5
+  prefabsWithProbabilities:
+  - prefab: {fileID: 4675834888588143523, guid: 9c0f196211de82145a814806fbdf73cf, type: 3}
+    spawnProbability: 0.05
+  - prefab: {fileID: 4675834888588143523, guid: 4e7a35af15a274a4fb80af080336878c, type: 3}
+    spawnProbability: 0.95
+  timeBetweenWavesMultiplierPerWave: 0.99
+  HunterMoveSpeedMultiplierPerWave: 1.01

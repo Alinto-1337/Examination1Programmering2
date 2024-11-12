@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 940515089935179460}
   - component: {fileID: 3524738355116157918}
   - component: {fileID: 613679180387752732}
-  - component: {fileID: 8255044649895211147}
   - component: {fileID: 1161073058425951407}
-  - component: {fileID: 700457625313777067}
+  - component: {fileID: 2342081867959322765}
   m_Layer: 0
   m_Name: AntiVirus
   m_TagString: Untagged
@@ -99,7 +98,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153697041835107548}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -140,7 +139,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -155,18 +154,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8255044649895211147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153697041835107548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 163bbcaa06e9b584e880a505deb88b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &1161073058425951407
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -204,7 +191,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 5, y: 2.91}
   m_Direction: 1
---- !u!114 &700457625313777067
+--- !u!114 &2342081867959322765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,6 +200,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 153697041835107548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c58545f349284ce4aa68e7e90e25611e, type: 3}
+  m_Script: {fileID: 11500000, guid: b127148552b18ee428294730a0acf11e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 2
+  timeRangeUntilNewTargetDirection: {x: 1, y: 3}
+  scaleIncrease: {x: 0.1, y: 0.1}

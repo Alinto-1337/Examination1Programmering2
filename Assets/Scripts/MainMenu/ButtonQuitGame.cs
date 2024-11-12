@@ -3,10 +3,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public class SceneLoadButton : MonoBehaviour
+public class ButtonQuitGame: MonoBehaviour
 {
-    [SerializeField, Scene] public string sceneToLoad;
-
     Button buttonComponent; 
 
 
@@ -20,6 +18,6 @@ public class SceneLoadButton : MonoBehaviour
 
     void OnButtonClick()
     {
-        SceneManager.LoadScene(sceneToLoad);
+        Application.Quit();
     }
 }

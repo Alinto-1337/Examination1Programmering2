@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4675834888588143528}
   - component: {fileID: 4675834888588143531}
   - component: {fileID: 4675834888588143530}
-  - component: {fileID: 4675834888588143520}
+  - component: {fileID: -6217403338554438714}
   m_Layer: 0
-  m_Name: HunterVirus
+  m_Name: AntiAntiVirus
   m_TagString: dontforgettoupdatethetag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 21300000, guid: 06cfc8530699da742b25a2627e10ab1e, type: 3}
-  m_Color: {r: 0.5943396, g: 0.15363115, b: 0.18177056, a: 0.8235294}
+  m_Sprite: {fileID: 21300000, guid: faf1e3c10313bb34f9665a7ca534fcb3, type: 3}
+  m_Color: {r: 0.086507656, g: 0.20166312, b: 0.6792453, a: 0.8235294}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -153,7 +153,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4675834888588143520
+--- !u!114 &-6217403338554438714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,6 +162,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4675834888588143523}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e4931b52c8d6394a95e33be451ce939, type: 3}
+  m_Script: {fileID: 11500000, guid: 93c0ba42a20b61e4ea58ef69318d08f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 1
