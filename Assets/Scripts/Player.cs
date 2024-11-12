@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,8 +11,7 @@ public class Player : MonoBehaviour
 
     Vector2 moveVector;
 
-    Rigidbody2D rigidbody2D;
-
+    Rigidbody2D rigidbody2d;
     InputSystem_Actions inputActions;
 
 
@@ -25,6 +21,10 @@ public class Player : MonoBehaviour
         {
             instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
 
@@ -32,14 +32,14 @@ public class Player : MonoBehaviour
     {
         InitiateInput();
 
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
 
     private void FixedUpdate()
     {
         // Apply movement each FixedUpdate
-        rigidbody2D.linearVelocity += moveVector * movementSpeed;
+        rigidbody2d.linearVelocity += moveVector * movementSpeed;
     }
 
     private void OnDestroy()
@@ -77,9 +77,6 @@ public class Player : MonoBehaviour
     {
         moveVector = Vector2.zero;  // Stop movement when the input is released
     }
-
-
-
 
 
     private void TakeDamage(int _dmg)

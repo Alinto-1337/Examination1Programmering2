@@ -15,7 +15,6 @@ public class HunterVirus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 0.005f);
-        // put in player's position
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 0.005f);        
     }
 }

@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class GameCamera : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] Vector3 cameraOffset = new Vector3(0, 0, -10);
+
+    Transform followTarget;
+
+
+    #region UNITY_EVENTS
     void Start()
     {
-        
+        followTarget = Player.instance.transform;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        GameObject camera = GameObject.FindWithTag("Player");
-        transform.position = camera.transform.position + new Vector3(0,0,-10);
+        transform.position = followTarget.transform.position + new Vector3(0,0,-10);
     }
+
+    #endregion
 }
