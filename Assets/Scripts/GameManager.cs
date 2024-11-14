@@ -12,10 +12,10 @@ namespace GooberBacteria
         internal static GameManager instance { get; private set; }
 
         // Asset References
-        [SerializeField, Scene] internal string mainMenuScene;
         [SerializeField, Scene] internal string winScene;
 
         // Scene References
+        [SerializeField] internal GameObject DeathPromptObject;
         [SerializeField] internal Image healthBarImage;
         [SerializeField] internal CircleCollider2D mapBoundsCollider;
         [SerializeField] internal TMP_Text timerText;
@@ -62,7 +62,7 @@ namespace GooberBacteria
             }
             else
             {
-                SceneManager.LoadScene(mainMenuScene);
+                if (DeathPromptObject != null) DeathPromptObject.SetActive(true);
             }
         }
     }

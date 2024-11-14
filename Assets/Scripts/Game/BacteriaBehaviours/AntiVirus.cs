@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GooberBacteria
 {
-    public class AntiVirus : MonoBehaviour
+    public class AntiVirus : BacteriaBase
     {
         static List<AntiVirus> antiVirusesList = new List<AntiVirus>();
         internal static List<AntiVirus> AntiVirusesList => antiVirusesList;
@@ -47,7 +47,7 @@ namespace GooberBacteria
             HunterVirus huntervirus = other.gameObject.GetComponent<HunterVirus>();
             if (huntervirus == null) return;
 
-            Destroy(huntervirus.gameObject);
+            huntervirus.Die();
             transform.localScale += (Vector3)scaleIncrease;
 
         }

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
@@ -18,6 +17,7 @@ public class ButtonQuitGame: MonoBehaviour
 
     void OnButtonClick()
     {
+        Debug.Log("Quitting Application...");
         Application.Quit();
     }
 }

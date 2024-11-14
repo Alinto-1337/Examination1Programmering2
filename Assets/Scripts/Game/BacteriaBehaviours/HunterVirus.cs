@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
 namespace GooberBacteria
 {
-    public class HunterVirus : MonoBehaviour
+    public class HunterVirus : BacteriaBase
     {
         [SerializeField] private static float startMoveSpeed = 5f;  // Serialized move speed
         private static float initialMoveSpeed = 0;  // Stores the original speed for resetting
@@ -20,21 +18,13 @@ namespace GooberBacteria
 
             moveSpeed = startMoveSpeed;
 
-            // Ensure player instance exists and assign it
-            if (Player.instance != null)
-            {
-                player = Player.instance;
-            }
-            else
-            {
-                Debug.LogWarning("There is already a player in the scene, Killing myself");
-                Destroy(gameObject);
-            }
+            player = Player.instance;
+
         }
 
         void Update()
         {
-
+            if (player == null) return;
             transform.position = Vector2.MoveTowards((Vector2)transform.position, (Vector2)player.transform.position, moveSpeed * Time.deltaTime);
 
         }

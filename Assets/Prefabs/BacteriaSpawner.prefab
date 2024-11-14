@@ -46,9 +46,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeBetweenWaves: 1.5
   prefabsWithProbabilities:
-  - prefab: {fileID: 4675834888588143523, guid: 9c0f196211de82145a814806fbdf73cf, type: 3}
-    spawnProbability: 0.05
   - prefab: {fileID: 4675834888588143523, guid: 4e7a35af15a274a4fb80af080336878c, type: 3}
-    spawnProbability: 0.95
-  timeBetweenWavesMultiplierPerWave: 0.99
-  HunterMoveSpeedMultiplierPerWave: 1.01
+    spawnProbability: 0.8
+  - prefab: {fileID: 4675834888588143523, guid: 9c0f196211de82145a814806fbdf73cf, type: 3}
+    spawnProbability: 1
+  timeBetweenWavesMultiplierPerWave: 0.97
+  HunterMoveSpeedMultiplierPerWave: 1.02
+  staticBacteriaSprites:
+  - {fileID: -6456346318501894404, guid: b239ac5fbf73abb438d02e12c91ff47b, type: 3}
+  - {fileID: -4880336612183257975, guid: b239ac5fbf73abb438d02e12c91ff47b, type: 3}
+  - {fileID: -5800354613245106697, guid: b239ac5fbf73abb438d02e12c91ff47b, type: 3}
+  - {fileID: -8307030226087602648, guid: b239ac5fbf73abb438d02e12c91ff47b, type: 3}
+  - {fileID: 7143418262231227647, guid: b239ac5fbf73abb438d02e12c91ff47b, type: 3}
+  - {fileID: -713927838875379090, guid: b239ac5fbf73abb438d02e12c91ff47b, type: 3}
+  - {fileID: 1865868528674038323, guid: b239ac5fbf73abb438d02e12c91ff47b, type: 3}
+  - {fileID: -3077845676092201993, guid: b239ac5fbf73abb438d02e12c91ff47b, type: 3}
+  - {fileID: -4941818727305674587, guid: b239ac5fbf73abb438d02e12c91ff47b, type: 3}
+  amountOfStaticBacteriaToSpawn: 15
+  staticBacteriaPrefab: {fileID: 2428033388344747128, guid: 317568523a0549f4fad04ace04f52850, type: 3}
+  staticBacteriaSizeRange: {x: 1, y: 1.5}
+  runtimeBacteriaParent: {fileID: 0}
+  staticBacteriaParent: {fileID: 0}

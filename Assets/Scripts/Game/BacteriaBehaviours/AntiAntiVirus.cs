@@ -1,16 +1,19 @@
 using UnityEngine;
 
 
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace GooberBacteria
 {
-    public class AntiAntiVirus : MonoBehaviour
+    public class AntiAntiVirus : BacteriaBase
     {
         [SerializeField] private float moveSpeed = 1.0f;  // Movement speed of the HunterVirus
 
+
+        AntiVirus closestAntiVirus;
+
+        private void Start()
+        {
+            closestAntiVirus = FindClosestAntiVirus();
+        }
         private void Update()
         {
             MoveTowardsClosestAntiVirus();
@@ -18,8 +21,6 @@ namespace GooberBacteria
 
         private void MoveTowardsClosestAntiVirus()
         {
-            AntiVirus closestAntiVirus = FindClosestAntiVirus();
-
             if (closestAntiVirus != null)
             {
                 // Move towards the closest AntiVirus position
@@ -51,11 +52,19 @@ namespace GooberBacteria
 
         private void OnCollisionEnter2D(Collision2D other)
         {
+            // AntiVirus Detection.. Kills Antiviruses
             AntiVirus antiVirus = other.gameObject.GetComponent<AntiVirus>();
             if (antiVirus != null)
             {
                 antiVirus.transform.localScale /= 2;
-                Destroy(gameObject);
+                this.Die();
+            }
+
+            // Player Detection.. Kills this on contact
+            Player player = other.gameObject.GetComponent<Player>();
+            if (player != null)
+            {
+                this.Die();
             }
         }
     }

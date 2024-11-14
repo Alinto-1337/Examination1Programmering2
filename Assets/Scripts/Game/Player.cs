@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +12,7 @@ namespace GooberBacteria
         [SerializeField] private float movementSpeed = 2f;
         [SerializeField] private float maxHealth = 100f;
         [SerializeField] private float rotationSpeed = 10f;
+        [SerializeField] private GameObject PlayerDeathVFX_Prefab;
 
         public static Player instance;
 
@@ -19,8 +21,10 @@ namespace GooberBacteria
         private bool damageTakenImunity;
 
         private GameManager gameManager;
+        private GameCamera gameCamera;
         private Rigidbody2D rigidbody2d;
         private InputSystem_Actions inputActions;
+
 
         #endregion
 
@@ -41,9 +45,12 @@ namespace GooberBacteria
         private void Start()
         {
             gameManager = GameManager.instance;
-            health = maxHealth;
-            InitiateInput();
+            gameCamera = GameCamera.instance;
             rigidbody2d = GetComponent<Rigidbody2D>();
+            InitiateInput();
+
+            health = maxHealth;
+
         }
 
         private void InitiateInput()
@@ -70,12 +77,11 @@ namespace GooberBacteria
         {
             rigidbody2d.linearVelocity = moveVector * movementSpeed;
 
-            if (moveVector != Vector2.zero)
-            {
-                float angle = Mathf.Atan2(moveVector.y, moveVector.x) * Mathf.Rad2Deg;
-                Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-            }
+            // Rotation
+            float angle = Mathf.Atan2(moveVector.y, moveVector.x) * Mathf.Rad2Deg;
+            Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
         }
 
         private void HandleMovePerformed(InputAction.CallbackContext context)
@@ -96,10 +102,13 @@ namespace GooberBacteria
         {
             if (damageTakenImunity) return;
 
+            gameCamera.DoScreenShake(5);
+
             health -= _dmg;
             if (health <= 0)
             {
                 gameManager.BackToMenu();
+                Die();
             }
             gameManager.healthBarImage.fillAmount = health / maxHealth;
 
@@ -119,6 +128,19 @@ namespace GooberBacteria
             {
                 TakeDamage(1);
             }
+        }
+
+        private void Die()
+        {
+            PlayDeathVFX();
+
+            Destroy(gameObject);
+            gameObject.SetActive(false);
+        }
+
+        private void PlayDeathVFX()
+        {
+            if (PlayerDeathVFX_Prefab != null) Destroy(Instantiate(PlayerDeathVFX_Prefab), 3f);
         }
 
         #endregion
